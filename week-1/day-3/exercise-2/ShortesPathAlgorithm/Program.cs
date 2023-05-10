@@ -223,7 +223,8 @@
                 visited[i] = false;
             }
 
-            distances[source] = int.MinValue;
+            //distances[source] = int.MinValue;
+            distances[source] = 0; // Because, initial point of vertex should be 0 to calculate distance
 
             for (int count = 0; count < vertices - 1; count++)
             {
