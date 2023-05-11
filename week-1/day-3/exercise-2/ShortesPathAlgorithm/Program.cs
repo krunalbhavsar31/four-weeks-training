@@ -221,6 +221,7 @@
             {
                 distances[i] = int.MaxValue;
                 visited[i] = false;
+
             }
 
             //distances[source] = int.MinValue;
