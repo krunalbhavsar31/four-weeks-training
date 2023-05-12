@@ -1,4 +1,9 @@
-﻿namespace LinqToObjectsApp
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Linq;
+
+namespace LinqToObjectsApp
 {
     internal class Program
     {
@@ -19,6 +24,52 @@
             //3. Sort people by name
             //4. Project/Select only Name and Country of all people
 
+
+            // Get all people from USA
+            IEnumerable<string> namesOfPeopleFromUsa =
+            from person in people
+            where person.Country == "USA"
+            select person.Name;
+
+            foreach (string name in namesOfPeopleFromUsa)
+            {
+                //Console.WriteLine(name);
+                Console.WriteLine($"{name} is from the USA.");
+            }
+
+            // Get all people above 30
+            IEnumerable<string> namesOfPeopleOver30 =
+            from person in people
+            where person.Age > 30
+            select person.Name;
+
+            foreach (string name in namesOfPeopleOver30)
+            {
+                //Console.WriteLine(name);
+                Console.WriteLine($"{name} is {name.Age} years old.");
+            }
+
+            // Sort people by name
+            IEnumerable<Person> sortedPeopleByName =
+            from person in people
+            orderby person.Name ascending
+            select person;
+
+            foreach (Person p in sortedPeopleByName)
+            {
+                //Console.WriteLine(p);
+                Console.WriteLine($"{p.Name} is from {p.Country} and is {p.Age} years old.");
+            }
+
+            // Project/Select only Name and Country of all people
+            IEnumerable<object> projectedPeople =
+            from person in people
+            select new { Name = person.Name, Country = person.Country };
+
+            foreach (var p in projectedPeople)
+            {
+                Console.WriteLine($"Name: {p.Name}, Country: {p.Country}");
+            }
         }
     }
 
