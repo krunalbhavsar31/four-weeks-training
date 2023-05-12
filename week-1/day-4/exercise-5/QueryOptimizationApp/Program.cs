@@ -33,6 +33,6 @@ namespace QueryOptimizationApp
             }
 
             return numbers;
-        }
+        } 
     }
 }
