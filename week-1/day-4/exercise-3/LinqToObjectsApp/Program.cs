@@ -66,6 +66,8 @@ namespace LinqToObjectsApp
             from person in people
             select new { Name = person.Name, Country = person.Country };
 
+            //var selectedPeople = people.Select(p => new { p.Name, p.Country });
+
             foreach (var p in projectedPeople)
             {
                 Console.WriteLine($"Name: {p.Name}, Country: {p.Country}");
