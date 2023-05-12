@@ -15,7 +15,8 @@ namespace QueryOptimizationApp
 
             // Optimized implementation
             sw.Restart();
-            
+
+            var originalQuery2 = data.Where(x => x > 50).OrderByDescending(x => x).Take(5);
             sw.Stop();
             Console.WriteLine("Optimized Query: {0} ms", sw.ElapsedMilliseconds);
         }
