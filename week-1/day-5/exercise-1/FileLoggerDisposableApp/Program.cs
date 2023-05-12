@@ -10,7 +10,7 @@
                 //logger.Log("Starting log");
                 //logger.Log("This is a log entry");
                 //logger.Log("Another log entry");
-                //logger.Log("Ending log");
+                //logger.Log("Ending log"); 
                 logger.Log("I am Krunal...!");
                 logger.Log("I want to be a Software Developer.....!!");
                 logger.Dispose();
