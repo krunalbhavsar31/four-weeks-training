@@ -15,7 +15,22 @@
         static async Task<string> FetchWeatherDataAsync(string url)
         {
             // Fetch web page content asynchronously using HttpClient
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(url);
+                    response.EnsureSuccessStatusCode();
+                    return await response.Content.ReadAsStringAsync();
+                }
+                catch (HttpRequestException ex)
+                {
+                    // Handle exception here...
+                    throw;
+                }
+            }
         }
     }
 }
